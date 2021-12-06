@@ -1,0 +1,16 @@
+==================
+MEOWMAN
+==================
+story - classic bomberman but with cats! :o PvP
+------------------------------------------
+characters & objects - player1, player2 - color different, basket w/ cat on back :DD
+	   	     - cat bombs - self explanatory, animations for explosions, 4s to explode
+	 	     - collisions - world borders, walls
+		     - bonuses
+------------------------------------------
+enviroments - 3: classic, traffic, cat land
+-------------------------------------------
+mechanics - difficulties: easy - 3 lives; normal - 2 lives; hard - 1 life, faster bonuses; 
+	  - movement (up,down,left,right); catbomb (space,0);
+	  - bonuses: extra cats, fastExpl cats - 2s, multiplying cats - when explodes, summons 
+		     another cat at end of explosion
