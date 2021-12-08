@@ -112,34 +112,86 @@ public class Player extends Actor {
             }
         }            
 
-        // For each key...
-        if (Greenfoot.isKeyDown(keyRight)){
-            moveX = 1; // set direction
-            if (direction != direction.RIGHT){ // if I wasn't already moving this direction...
-                frame = 1; // start again at frame 1
-                direction = direction.RIGHT; // set direction to the newly specified direction
+        /* For each key...
+         * 
+         *  RIGHT
+         * 
+         */
+        Actor rightCollide = getOneObjectAtOffset(16, 0, Collisions.class);
+        if (rightCollide != null) {
+            if (Greenfoot.isKeyDown(keyRight)){
+                moveX = 0; // set direction
+                if (direction != direction.RIGHT){ // if I wasn't already moving this direction...
+                    frame = 1; // start again at frame 1
+                    direction = direction.RIGHT; // set direction to the newly specified direction
+                }
+            }
+        } else {
+            if (Greenfoot.isKeyDown(keyRight)){
+                moveX = 1; // set direction
+                if (direction != direction.RIGHT){ // if I wasn't already moving this direction...
+                    frame = 1; // start again at frame 1
+                    direction = direction.RIGHT; // set direction to the newly specified direction
+                }
             }
         }
-        if (Greenfoot.isKeyDown(keyLeft)){
-            moveX = -1;
-            if (direction != direction.LEFT){
-                frame = 1;
-                direction = direction.LEFT;
+        
+        /*
+         *  LEFT
+         */
+        Actor leftCollide = getOneObjectAtOffset(-16, 0, Collisions.class);
+        if (leftCollide != null) {
+            if (Greenfoot.isKeyDown(keyLeft)){
+                moveX = 0;
+                if (direction != direction.LEFT){
+                    frame = 1;
+                    direction = direction.LEFT;
+                }
+            }
+        } else {
+            if (Greenfoot.isKeyDown(keyLeft)){
+                moveX = -1;
+                if (direction != direction.LEFT){
+                    frame = 1;
+                    direction = direction.LEFT;
+                }
             }
         }
         if (moveX == 0){ // prevent diagonal movement - only check for Y if nothing is moving on X
-            if (Greenfoot.isKeyDown(keyUp)){
-                moveY = -1;
-                if(direction != direction.UP){
-                    frame = 1;
-                    direction = direction.UP;
+            /*
+             *  UP
+             */
+            Actor upCollide = getOneObjectAtOffset(0, -16, Collisions.class);
+            if (upCollide != null) {
+                if (Greenfoot.isKeyDown(keyUp)){
+                    moveY = 0;
+                    if(direction != direction.UP){
+                        frame = 1;
+                        direction = direction.UP;
+                    }
+                }
+            } else {
+                if (Greenfoot.isKeyDown(keyUp)){
+                    moveY = -1;
+                    if(direction != direction.UP){
+                        frame = 1;
+                        direction = direction.UP;
+                    }
                 }
             }
-            if (Greenfoot.isKeyDown(keyDown)){
-                moveY = 1;
-                if (direction != direction.DOWN){
-                    frame = 1; 
-                    direction = direction.DOWN;
+            /*
+             *  DOWN
+             */
+            Actor downCollide = getOneObjectAtOffset(0, 16, Collisions.class);
+            if (downCollide != null) {
+            
+            } else {
+                if (Greenfoot.isKeyDown(keyDown)){
+                    moveY = 1;
+                    if (direction != direction.DOWN){
+                        frame = 1; 
+                        direction = direction.DOWN;
+                    }
                 }
             }
         }
