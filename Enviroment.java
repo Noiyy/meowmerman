@@ -59,7 +59,7 @@ public class Enviroment extends World {
     
     public void createPlayer(int x, int y) {
         //
-        Player player = new Player("UP", "LEFT", "DOWN", "RIGHT");
+        Player player = new Player("up", "left", "down", "right");
         this.addObject(player, x, y);
     }
     
