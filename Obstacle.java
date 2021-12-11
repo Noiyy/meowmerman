@@ -6,14 +6,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Obstacle extends Actor
-{
-    /**
-     * Act - do whatever the Obstacle wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
+public class Obstacle extends Actor {
+    
+    public void act() {
+        if (isTouching(Collisions.class)) {
+            getWorld().removeObject(this);
+        }
+    }
+    
+    private boolean nearPlayer() {
+        return this.getObjectsInRange(32, Player.class).isEmpty();
+    }
+    
+    public void addedToWorld(World w) {
+        if (!nearPlayer()) {
+            getWorld().removeObject(this);
+        }
     }
 }

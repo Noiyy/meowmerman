@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Enviroment extends World {
     private int wallsX[] = {2, 4, 6, 8, 10, 12, 14, 16, 18};
     private int wallsY[] = {2, 4, 6, 8, 10, 12};
-    private int helpersX[] = new int[20];
-    private int helpersY[] = new int[14];
+    private int helpersX[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
+    private int helpersY[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
     //
     private int cellX = 16, cellY = 16;
     
@@ -20,9 +20,8 @@ public class Enviroment extends World {
         super(672, 480, 1);             // 21, 15, 32
         createBorders(1, 1);
         createWalls(wallsX, wallsY);
-        createPlayer(32*1+16, 32*7+16);
+        createPlayer(32*1+16, 32*11+16);
         createHelpers(helpersX, helpersY);
-        createObstacles();
     }
     
     public void createBorders(int x, int y) {
@@ -75,23 +74,10 @@ public class Enviroment extends World {
     }
     
     public void createHelpers(int x[], int y[]) {
-        // set cells for arrays
-        for (int a = 1; a < 20; a++) {
-            helpersX[a] = a;
-            for (int b = 1; b < 14; b++) {
-                helpersY[b] = b;
-            }
-        }
-        //
-        for (int o = 1; o < helpersX.length; o++) {
-            for (int i = 1; i < helpersY.length; i++) {
+        for (int o = 0; o < helpersX.length; o++) {
+            for (int i = 0; i < helpersY.length; i++) {
                 this.addObject(new Helper(), x[o]*32+16, y[i]*32+16);
             }
         }
     }
-    
-    public void createObstacles() {
-        
-    }
-    
 }

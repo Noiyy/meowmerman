@@ -261,9 +261,6 @@ public class Player extends Actor {
 
         public final static int size = Direction.values().length;
     }
-    /*
-     * End of SpriteFoot Animation
-     */
     
     public void movementX(int num) {
         int moveX = 0;

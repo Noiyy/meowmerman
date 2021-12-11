@@ -11,6 +11,4 @@ comment4.params=x\ y
 comment4.target=void\ createWalls(int[],\ int[])
 comment5.params=x\ y
 comment5.target=void\ createHelpers(int[],\ int[])
-comment6.params=
-comment6.target=void\ createObstacles()
-numComments=7
+numComments=6
